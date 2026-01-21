@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+// 1. NUEVO: Importamos la librería de análisis
+import { Analytics } from "@vercel/analytics/react"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +35,9 @@ export default function RootLayout({
       {/* Estilos de selección en rojo para mantener la identidad de marca */}
       <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased selection:bg-red-600 selection:text-white`}>
         {children}
+        
+        {/* 2. NUEVO: Agregamos el componente aquí para rastrear las visitas */}
+        <Analytics />
       </body>
     </html>
   );
