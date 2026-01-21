@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///Users/macbook/Documents/mtconsultingfl/app/page.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <main className=\"p-10\">\n      <div className=\"rounded-xl bg-black p-6 text-white text-2xl\">\n        Tailwind OK ✅\n      </div>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAK,WAAU;kBACd,cAAA,8OAAC;YAAI,WAAU;sBAA8C;;;;;;;;;;;AAKnE"}}]
+}

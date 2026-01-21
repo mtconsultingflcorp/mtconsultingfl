@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* --- TEMA PERSONALIZADO (Agregado para que funcione el diseño) --- */
+@theme {
+  --color-foreground: 15, 23, 42;
+  --color-background-start: 248, 250, 252;
+  --color-background-end: 255, 255, 255;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+}
+
+/* --- ESTILOS GENERALES --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Fondo sutil */
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(255, 255, 255)
+    )
+    rgb(248, 250, 252);
+  overflow-x: hidden;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clase de utilidad para la animación (compatible con v4) */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* --- BARRA DE SCROLL PREMIUM (Negra y Roja) --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dc2626; /* Rojo MT Consulting */
+  border-radius: 20px;
+  border: 2px solid #000000;
+}
