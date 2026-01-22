@@ -8,13 +8,12 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // CONFIGURACIÓN DE LINKS CORREGIDA
-  // Conectamos el Nombre (lo que se ve) con el Link real (el ID del componente)
+  // CONFIGURACIÓN DE LINKS
   const navItems = [
-    { name: "Inicio", link: "#inicio" },       // ID en page.tsx
-    { name: "Servicios", link: "#services" },  // ID en Services.tsx
-    { name: "Nosotros", link: "#about" },      // ID en About.tsx
-    { name: "Contacto", link: "#contact" }     // ID en Contact.tsx
+    { name: "Inicio", link: "#inicio" },
+    { name: "Servicios", link: "#services" },
+    { name: "Nosotros", link: "#about" },
+    { name: "Contacto", link: "#contact" }
   ];
 
   // Detectar Scroll
@@ -28,14 +27,16 @@ export default function Header() {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
         isScrolled 
-          ? "bg-white/90 backdrop-blur-md py-3 shadow-lg border-gray-200" // SCROLL: Blanco translúcido
-          : "bg-transparent py-6 border-transparent" // TOP: Transparente
+          ? "bg-white/90 backdrop-blur-md py-2 shadow-lg border-gray-200" // Reduje py-3 a py-2 para compensar el logo más grande
+          : "bg-transparent py-5 border-transparent"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         
-        {/* --- LOGO DINÁMICO --- */}
-        <Link href="/" className="relative h-[45px] w-[180px]">
+        {/* --- LOGO DINÁMICO (TAMAÑO AUMENTADO) --- */}
+        {/* Antes: h-[45px] w-[180px] */}
+        {/* Ahora: h-[55px] w-[200px] en móvil | md:h-[70px] md:w-[250px] en escritorio */}
+        <Link href="/" className="relative h-[55px] w-[200px] md:h-[70px] md:w-[250px] transition-all duration-300">
             {/* Logo Oscuro (Para fondo blanco al bajar) */}
             <Image 
               src="/assets/img/logo.png" 
@@ -63,11 +64,11 @@ export default function Header() {
           {navItems.map((item) => (
             <a 
               key={item.name} 
-              href={item.link} // Usamos el LINK correcto (#about, #contact, etc.)
+              href={item.link} 
               className={`text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
                 isScrolled 
-                  ? "text-red-600 hover:text-black" // BAJANDO: Rojo -> Negro
-                  : "text-red-500 hover:text-white" // ARRIBA: Rojo Brillante -> Blanco
+                  ? "text-red-600 hover:text-black" 
+                  : "text-red-500 hover:text-white"
               }`}
             >
               {item.name}
@@ -78,7 +79,7 @@ export default function Header() {
           <a 
             href="https://wa.me/14078029204" 
             target="_blank"
-            className="bg-red-600 text-white px-6 py-2.5 rounded-full font-bold text-xs uppercase hover:bg-black transition-all shadow-lg hover:shadow-red-600/40 transform hover:-translate-y-0.5"
+            className="bg-red-600 text-white px-7 py-3 rounded-full font-bold text-xs uppercase hover:bg-black transition-all shadow-lg hover:shadow-red-600/40 transform hover:-translate-y-0.5"
           >
             Consulta Gratis
           </a>
@@ -92,13 +93,11 @@ export default function Header() {
           }`}
         >
           {isOpen ? (
-            // Icono X (Cerrar)
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-9 h-9">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           ) : (
-            // Icono Hamburguesa (Menú)
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-9 h-9">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           )}
